@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.F.C.D.E - Académie Football Club Dieu-Est | Agnibilékrou</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#f5f5f5;color:#111}
+.topbar{background:#0a0a0a;color:white;padding:8px 16px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:1px}
+.topbar span{color:#facc15}
+.topbar a{color:#facc15;text-decoration:none;font-weight:900}
+header{background:white;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;box-shadow:0 2px 20px rgba(0,0,0,.1)}
+.logo-zone{display:flex;align-items:center;gap:12px}
+.logo-zone img{width:58px;height:58px;border-radius:50%;background:#eef2ff;object-fit:cover;border:2px solid #1d4ed8}
+.logo-txt{font-weight:900;line-height:1;font-size:20px;letter-spacing:1px}
+.logo-txt span{font-size:10px;letter-spacing:2px;color:#1d4ed8;display:block;margin-top:3px}
+nav a{color:#111;text-decoration:none;margin-left:18px;font-size:13px;font-weight:700;letter-spacing:1px}
+nav a.active{color:#1d4ed8;border-bottom:3px solid #facc15;padding-bottom:4px}
+.hero{position:relative;height:480px;background:url('photo-1.jpg') center/cover no-repeat, linear-gradient(#1d4ed8,#111);display:flex;align-items:flex-end;color:white}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.75) 70%,rgba(0,0,0,.92) 100%)}
+.hero-content{position:relative;z-index:2;padding:30px 20px 32px 20px;max-width:1000px;margin:auto;width:100%}
+.hero .tag{background:#facc15;color:#111;padding:6px 14px;font-size:11px;font-weight:900;letter-spacing:2px;border-radius:3px}
+.hero h1{font-size:52px;line-height:.95;font-weight:900;margin:14px 0}
+.hero h1 span{color:#facc15}
+.hero p{font-size:16px;opacity:.95;max-width:650px;line-height:1.5}
+.hero .slogan{margin-top:14px;background:rgba(250,204,21,.95);color:#111;padding:12px 16px;border-radius:8px;font-weight:800;font-size:15px;line-height:1.4;max-width:650px}
+.btn{padding:14px 26px;font-weight:800;font-size:13px;letter-spacing:1px;text-decoration:none;display:inline-block;border-radius:6px}
+.btn-jaune{background:#facc15;color:#111}
+.btn-bleu{background:#1d4ed8;color:white}
+.btn-blanc{background:white;color:#111}
+.btn-whatsapp{background:#25D366;color:white}
+.btn-facebook{background:#1877F2;color:white}
+.btn-messenger{background:#0084FF;color:white}
+.btn-suivre{background:#42b72a;color:white}
+.btns-dehors{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;padding:20px 18px;background:#f5f5f5}
+.bar3{display:flex;height:8px}
+.bar3 div{flex:1}
+.bar3 .b{background:#1d4ed8}.bar3 .w{background:white}.bar3 .j{background:#facc15}
+section{max-width:1100px;margin:auto;padding:40px 18px}
+h2{font-size:28px;font-weight:900;margin-bottom:6px}
+h2 i{color:#1d4ed8;font-style:normal}
+.sous{color:#666;margin-bottom:22px;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:white;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.card .img{height:120px;background:#dbeafe;display:flex;align-items:center;justify-content:center;font-size:38px}
+.card-body{padding:18px}
+.card-body h3{font-size:16px;margin-bottom:6px}
+.card-body p{font-size:14px;color:#555;line-height:1.6}
+.sec-bleu{background:#1d4ed8;color:white}
+.sec-bleu h2,.sec-bleu .sous{color:white}
+.sec-bleu .sous{opacity:.85}
+.sec-jaune{background:#facc15}
+.sec-jaune h2{color:#111}
+.sec-jaune h2 i{color:#1d4ed8}
+table{width:100%;background:white;border-collapse:collapse;font-size:14px;border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+th{background:#111;color:#facc15;padding:14px;text-align:left;letter-spacing:1px;font-size:12px}
+td{padding:14px;border-bottom:1px solid #eee}
+td b{color:#1d4ed8}
+.tarifs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.prix{padding:24px;text-align:center;border-radius:10px}
+.prix-bleu{background:#1d4ed8;color:white}
+.prix-blanc{background:white;color:#111;border:2px solid #111}
+.prix-jaune{background:#facc15;color:#111}
+.prix .montant{font-size:34px;font-weight:900;margin:10px 0}
+.prix p{font-size:14px;line-height:1.6}
+.versement{background:white;border-radius:10px;padding:14px;margin-top:12px;text-align:left;color:#111}
+.versement b{color:#1d4ed8}
+.form-box{background:white;padding:24px;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.08);display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,select{width:100%;padding:13px;border:1px solid #ddd;border-radius:6px;font-size:14px}
+.form-box .full{grid-column:1/-1}
+.horaires-box{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.horaires-card{background:white;color:#111;border-radius:10px;padding:22px;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.horaires-card h3{font-size:18px;margin-bottom:10px}
+.horaires-card .heure{font-size:32px;font-weight:900;color:#1d4ed8;margin:8px 0}
+.horaires-card.jaune{background:#facc15}
+.coach-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);text-align:center;padding-bottom:18px;border-top:6px solid #1d4ed8}
+.coach-card.mael{border-top-color:#facc15}
+.coach-card img{width:100%;height:240px;object-fit:cover;background:#dbeafe;display:block}
+.coach-card .badge{display:inline-block;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:900;letter-spacing:1px;margin-top:-14px;position:relative;background:#facc15;color:#111}
+.coach-card .badge.bleu{background:#1d4ed8;color:white}
+.lieu-box{background:white;border-radius:12px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,.08);display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-separe{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.contact-card{background:white;border-radius:12px;padding:20px;box-shadow:0 4px 20px rgba(0,0,0,.08);border-left:6px solid #1d4ed8}
+.contact-card.mael{border-left-color:#facc15}
+.galerie{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px}
+.case-photo{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.case-photo img{width:100%;height:220px;object-fit:cover;display:block;background:#dbeafe}
+.case-photo.grande{grid-column:span 2;height:260px}
+.case-photo.grande img{height:260px}
+.slogan-parents{background:#111;color:white;border-radius:14px;padding:28px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.15);margin-top:10px}
+.slogan-parents h2{color:white;font-size:26px;line-height:1.3}
+.slogan-parents h2 span{color:#facc15}
+.slogan-parents p{color:#ddd;font-size:15px;line-height:1.7;max-width:800px;margin:12px auto 0}
+.filles-box{background:#fce7f3;border:2px solid #ec4899;border-radius:14px;padding:24px;text-align:center;margin-top:16px}
+.filles-box h3{color:#be185d;font-size:22px}
+.filles-box p{font-size:15px;line-height:1.7;color:#444;margin-top:8px}
+.facebook-box{background:#1877F2;color:white;border-radius:14px;padding:26px;text-align:center;margin-top:16px}
+.facebook-box h3{font-size:22px}
+.facebook-box p{font-size:15px;line-height:1.6;margin-top:8px;opacity:.95}
+footer{background:#0a0a0a;color:white;padding:30px 18px;text-align:center}
+footer .cols{display:flex;justify-content:space-between;max-width:1000px;margin:auto;text-align:left;gap:20px;flex-wrap:wrap}
+footer h4{color:#facc15;margin-bottom:8px}
+footer p{font-size:13px;line-height:1.7;opacity:.85}
+footer a{color:white;text-decoration:none}
+@media(max-width:700px){.hero h1{font-size:34px}.hero{height:460px}.grid,.tarifs,.horaires-box,.grid2,.lieu-box,.contact-separe,.galerie{grid-template-columns:1fr 1fr}.form-box{grid-template-columns:1fr}nav{display:none}.case-photo.grande{grid-column:span 2}}
+
+@media(max-width:480px){
+  .grid,.grid2,.tarifs,.horaires-box,.lieu-box,.contact-separe,.galerie{grid-template-columns:1fr}
+  .case-photo.grande{grid-column:auto}
+  .hero h1{font-size:30px}
+  .hero .tag{font-size:9px;letter-spacing:1px}
+  .btns-dehors .btn{width:100%;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><span>AGNIBILÉKROU • INDÉNIÉ-DJUABLIN 🇨🇮</span><span><a href="https://www.facebook.com/afcde225" target="_blank">➕ S'ABONNER À NOTRE FACEBOOK →</a></span></div>
+
+<header>
+<div class="logo-zone">
+<img src="logo.jpeg" alt="Logo">
+<div class="logo-txt">A.F.C.D.E<span>ACADÉMIE FOOTBALL CLUB DIEU-EST</span></div>
+</div>
+<nav><a href="#" class="active">ACCUEIL</a><a href="#coachs">COACHS</a><a href="#horaires">HORAIRES</a><a href="#tarifs">TARIFS</a><a href="#inscription">INSCRIPTION</a><a href="https://www.facebook.com/afcde225" target="_blank" style="color:#1877F2">📘 FACEBOOK</a></nav>
+</header>
+
+<div class="hero">
+<div class="hero-content">
+<span class="tag">ACADÉMIE OFFICIELLE • U6 À U20 • GARÇONS & FILLES • AGNIBILÉKROU</span>
+<h1>ACADÉMIE FOOTBALL CLUB<br><span>DIEU-EST</span></h1>
+<p>Former les futurs champions par la foi, la discipline et le travail.<br>👦👧 <b>On forme les GARÇONS et aussi les FILLES.</b> Toutes les filles sont les bienvenues, de 6 à 20 ans.<br>📍 Stade Abinan Kouakou Pascal d'Agnibilékrou — à côté du Lycée Moderne (Grand Terrain).</p>
+<div class="slogan">💛 "Confiez-nous votre enfant, nous en ferons un champion sur le terrain et un homme de valeur dans la vie."<br>👧 Les filles aussi ont leur place ici. Le talent n'a pas de genre.<br>🙏 DIEU D'ABORD • DISCIPLINE TOUJOURS • TRAVAIL TOUJOURS</div>
+</div>
+</div>
+<div class="bar3"><div class="b"></div><div class="w"></div><div class="j"></div></div>
+
+<div class="btns-dehors">
+<a class="btn btn-jaune" href="#inscription">REJOINDRE L'ACADÉMIE →</a>
+<a class="btn btn-whatsapp" href="https://wa.me/2250500065717?text=Bonjour%20Coach%20ROSSI%20je%20veux%20m'inscrire%20a%20AFCDE">CONTACTER COACH ROSSI 💬</a>
+<a class="btn btn-facebook" href="https://www.facebook.com/afcde225" target="_blank">📘 PAGE FACEBOOK</a>
+<a class="btn btn-suivre" href="https://www.facebook.com/afcde225" target="_blank">➕ S'ABONNER</a>
+<a class="btn btn-messenger" href="https://www.facebook.com/afcde225" target="_blank">💬 MESSAGE FACEBOOK</a>
+</div>
+
+<section style="padding-top:10px">
+<div class="slogan-parents">
+<h2>CHERS PARENTS, <span>VOTRE ENFANT A DU TALENT.</span><br>NOUS AVONS LA FORMATION.</h2>
+<p>Votre enfant, garçon ou fille, ne vient pas seulement jouer au football. Il vient apprendre le respect, la discipline, le travail en équipe et la foi.<br><b style="color:#facc15">Aujourd'hui vous l'inscrivez pour jouer. Demain, il vous rendra fier.</b><br>Ne laissez pas son talent dormir. Donnez-lui sa chance maintenant.</p>
+</div>
+
+<div class="filles-box">
+<h3>👧💪 LES FILLES AUSSI SONT LES BIENVENUES !</h3>
+<p><b>Oui, on forme aussi les filles !</b><br>De 6 à 20 ans, filles et garçons s'entraînent ensemble, dans le respect et la discipline.<br>Ta fille a du talent ? Elle a sa place à A.F.C.D.E.<br><b>Le football n'est pas que pour les garçons. Les championnes de demain sont ici.</b></p>
+</div>
+
+<div class="facebook-box">
+<h3>📘 SUIVEZ A.F.C.D.E SUR FACEBOOK</h3>
+<p>Photos, vidéos, matchs, résultats, annonces des entraînements.<br>Tout ce qui se passe au club, c'est d'abord sur notre page Facebook officielle.<br><b>Abonne-toi pour ne rien rater !</b></p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px">
+<a class="btn btn-blanc" href="https://www.facebook.com/afcde225" target="_blank">📘 VOIR LA PAGE</a>
+<a class="btn btn-suivre" href="https://www.facebook.com/afcde225" target="_blank">➕ S'ABONNER À LA PAGE</a>
+<a class="btn btn-messenger" href="https://www.facebook.com/afcde225" target="_blank">💬 ENVOYER UN MESSAGE</a>
+</div>
+<p style="font-size:13px;margin-top:12px;opacity:.9">Les 3 boutons ouvrent la page d'accueil Facebook du club. Sur la page, tu peux t'abonner et cliquer sur Message pour écrire au club.</p>
+</div>
+</section>
+
+<section>
+<h2>COMMENT <i>ÇA SE PASSE ?</i></h2>
+<p class="sous">Simple, pour les parents et les joueurs d'Agnibilékrou et partout dans l'Indénié-Djuablin. Garçons et filles.</p>
+<div class="grid">
+<div class="card"><div class="img">📝</div><div class="card-body"><h3>01 — Contact</h3><p>Contacte Coach ROSSI <b>OU</b> Coach Maël sur WhatsApp. Chacun a son numéro. On te donne le jour de ton essai.</p></div></div>
+<div class="card"><div class="img">⚽</div><div class="card-body"><h3>02 — Essai</h3><p>Viens au Stade Abinan Kouakou Pascal avec tenue + crampons + eau. On te teste pendant 1 séance. Fille ou garçon, même essai.</p></div></div>
+<div class="card"><div class="img">📂</div><div class="card-body"><h3>03 — Inscription</h3><p>Viens au siège du club pour ton inscription. Tu recevras ton maillot du club.</p></div></div>
+</div>
+</section>
+
+<div class="sec-jaune"><section>
+<h2>NOS <i>3 CATÉGORIES — U6 À U20</i></h2>
+<p class="sous">Seulement 3 catégories. Garçons & Filles. Chaque joueur joue avec son âge.</p>
+<div class="grid">
+<div class="card"><div class="card-body"><h3>🟦 CATÉGORIE 1 : U6 - U10</h3><p><b>6 à 10 ans — Filles & Garçons</b><br>Découverte, jeu, coordination, plaisir. Bases : passe, contrôle, dribble.</p></div></div>
+<div class="card"><div class="card-body"><h3>⬜ CATÉGORIE 2 : U11 - U15</h3><p><b>11 à 15 ans — Filles & Garçons</b><br>Technique + tactique. Postes, esprit d'équipe. Matchs officiels.</p></div></div>
+<div class="card"><div class="card-body"><h3>🟨 CATÉGORIE 3 : U16 - U20</h3><p><b>16 à 20 ans — Filles & Garçons</b><br>Haut niveau, physique, tactique avancée, compétition, détection.</p></div></div>
+</div>
+</section></div>
+
+<section id="coachs">
+<h2>NOS <i>COACHS</i></h2>
+<p class="sous">Chaque coach a son propre contact. Tu contactes celui que tu veux.</p>
+<div class="grid2">
+<div class="coach-card">
+<img src="coach-rossi.jpg" alt="Coach ROSSI">
+<span class="badge">COACH PRINCIPAL ⭐</span>
+<div style="padding:16px">
+<h3 style="font-size:22px">COACH ROSSI</h3>
+<p style="color:#1d4ed8;font-weight:700;font-size:13px;letter-spacing:1px">COACH PRINCIPAL DU CLUB</p>
+<p style="font-size:14px;color:#555;margin:10px 0;line-height:1.6">Responsable de l'académie, des entraînements et des matchs. Garçons et filles.</p>
+<div style="background:#f0f7ff;border-radius:8px;padding:12px;margin:10px 0">
+<p style="font-size:13px;color:#666">📞 CONTACT COACH ROSSI</p>
+<p style="font-size:18px;font-weight:900">+225 05 00 06 57 17</p>
+</div>
+<a class="btn btn-whatsapp" href="https://wa.me/2250500065717?text=Bonjour%20Coach%20ROSSI%20je%20veux%20inscrire%20mon%20enfant%20a%20AFCDE" style="width:100%;text-align:center">WHATSAPP COACH ROSSI 💬</a>
+<a class="btn btn-bleu" href="tel:+2250500065717" style="width:100%;text-align:center;margin-top:8px">APPELER ROSSI 📞</a>
+</div>
+</div>
+<div class="coach-card mael">
+<img src="coach-mael.jpg" alt="Coach Maël">
+<span class="badge bleu">SECOND COACH</span>
+<div style="padding:16px">
+<h3 style="font-size:22px">COACH MAËL</h3>
+<p style="color:#1d4ed8;font-weight:700;font-size:13px;letter-spacing:1px">SECOND COACH</p>
+<p style="font-size:14px;color:#555;margin:10px 0;line-height:1.6">Adjoint de Coach ROSSI. Encadrement, technique et suivi des joueurs. Garçons et filles.</p>
+<div style="background:#fefce8;border-radius:8px;padding:12px;margin:10px 0">
+<p style="font-size:13px;color:#666">📞 CONTACT COACH MAËL</p>
+<p style="font-size:18px;font-weight:900">+225 07 01 36 11 70</p>
+</div>
+<a class="btn btn-bleu" href="https://wa.me/2250701361170?text=Bonjour%20Coach%20Mael%20je%20veux%20inscrire%20mon%20enfant%20a%20AFCDE" style="width:100%;text-align:center">WHATSAPP COACH MAËL 💬</a>
+<a class="btn btn-jaune" href="tel:+2250701361170" style="width:100%;text-align:center;margin-top:8px">APPELER MAËL 📞</a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="sec-bleu" id="horaires"><section>
+<h2>JOURS & HEURES <i>D'ENTRAÎNEMENT</i></h2>
+<p class="sous">Au Stade Abinan Kouakou Pascal — Horaires fixes pour les 3 catégories. Filles et garçons, mêmes horaires.</p>
+<div class="horaires-box">
+<div class="horaires-card">
+<h3>🏖️ PENDANT LES VACANCES</h3>
+<p><b>Lundi au Samedi</b></p>
+<div class="heure">6h00 ☀️</div><p>Séance du matin</p>
+<hr style="margin:12px 0">
+<div class="heure">14h00 🌤️</div><p>Séance du soir</p>
+<p style="margin-top:10px;font-size:13px;color:#555">✔ 2 séances par jour<br>✔ Dimanche = Repos / Match</p>
+</div>
+<div class="horaires-card jaune">
+<h3>📚 PENDANT LES COURS</h3>
+<p><b>Mercredi - Samedi - Dimanche</b></p>
+<div class="heure">14h00</div><p>Une seule séance — après l'école</p>
+<p style="margin-top:10px;font-size:13px">✔ L'école d'abord<br>✔ Lundi, Mardi, Jeudi, Vendredi = Cours / Repos<br>✔ Arriver 15 min avant</p>
+</div>
+</div>
+<br>
+<table>
+<tr><th>CATÉGORIE</th><th>VACANCES</th><th>PÉRIODE DES COURS</th></tr>
+<tr><td><b>U6 - U10 F & G</b></td><td>Lun - Sam : 6h & 14h</td><td>Mer, Sam, Dim : 14h</td></tr>
+<tr><td><b>U11 - U15 F & G</b></td><td>Lun - Sam : 6h & 14h</td><td>Mer, Sam, Dim : 14h</td></tr>
+<tr><td><b>U16 - U20 F & G</b></td><td>Lun - Sam : 6h & 14h</td><td>Mer, Sam, Dim : 14h</td></tr>
+</table>
+</section></div>
+
+<section id="tarifs">
+<h2>NOS <i>TARIFS</i></h2>
+<p class="sous">Pour connaître les tarifs et les différentes formules, rendez-vous directement au siège du club.</p>
+<div class="tarifs">
+<div class="prix prix-bleu">
+<small>INSCRIPTION & TARIFS</small>
+<div class="montant">AU SIÈGE</div>
+<p>Pour connaître les tarifs<br>et les différentes formules,<br><b>rendez-vous directement au siège du club.</b></p>
+<div class="versement">
+<p><b>✅ POUR S'INSCRIRE</b><br>Rendez-vous au siège du club. On vous expliquera tout sur place.</p>
+</div>
+</div>
+<div class="prix prix-blanc"><small>KIT À RECEVOIR 🎽</small><div class="montant">MAILLOT</div><p>Maillot officiel du club<br>Maillot A.F.C.D.E<br>💙 Bleu - 🤍 Blanc - 💛 Jaune<br><br>Reçu après inscription</p></div>
+</div>
+<p style="text-align:center;margin-top:14px;font-size:13px;color:#666">Pour tous les montants et les différents prix, rendez-vous au siège du club.</p>
+</section>
+
+<section id="equipe">
+<h2>NOS <i>JOUEURS</i></h2>
+<p class="sous">Nos joueurs à l'entraînement, toutes catégories confondues — U6 à U20. Garçons et filles.</p>
+<div class="galerie">
+<div class="case-photo grande"><img src="photo-1.jpg"></div>
+<div class="case-photo"><img src="photo-2.jpg"></div>
+<div class="case-photo"><img src="photo-3.jpg"></div>
+<div class="case-photo"><img src="photo-4.jpg"></div>
+<div class="case-photo"><img src="photo-5.jpg"></div>
+<div class="case-photo"><img src="photo-6.jpg"></div>
+<div class="case-photo"><img src="photo-7.jpg"></div>
+</div>
+<p style="text-align:center;margin-top:14px;font-size:14px;color:#be185d;font-weight:700">👧 Les filles aussi jouent ici. Envoie ta fille, elle a sa place.</p>
+</section>
+
+<section>
+<h2>📍 NOTRE <i>LIEU</i></h2>
+<p class="sous">Viens nous voir directement au Grand Terrain d'Agnibilékrou.</p>
+<div class="lieu-box">
+<div>
+<h3 style="color:#1d4ed8;margin-bottom:10px">🏟️ LIEU D'ENTRAÎNEMENT</h3>
+<p style="line-height:1.7;font-size:15px"><b>Stade Abinan Kouakou Pascal d'Agnibilékrou</b><br>À côté du Lycée Moderne d'Agnibilékrou<br><b>(Grand Terrain)</b><br><br>📍 Agnibilékrou<br>Région de l'Indénié-Djuablin<br>Côte d'Ivoire 🇨🇮</p>
+<a class="btn btn-bleu" href="https://maps.google.com/?q=Stade+Abinan+Kouakou+Pascal+Agnibilekrou" style="margin-top:14px">VOIR SUR MAPS 📍</a>
+<br><br>
+<a class="btn btn-facebook" href="https://www.facebook.com/afcde225" target="_blank">📘 VOIR NOTRE FACEBOOK</a>
+<br><br>
+<a class="btn btn-suivre" href="https://www.facebook.com/afcde225" target="_blank">➕ S'ABONNER À LA PAGE</a>
+<br><br>
+<a class="btn btn-messenger" href="https://www.facebook.com/afcde225" target="_blank">💬 ENVOYER UN MESSAGE</a>
+</div>
+<div>
+<h3 style="color:#1d4ed8;margin-bottom:10px">🏫 ACADÉMIE</h3>
+<p style="line-height:1.7;font-size:15px"><b>Académie Football Club Dieu-Est</b><br>Située à Agnibilékrou<br>Dans la Région de l'Indénié-Djuablin<br><b>Garçons & Filles — U6 à U20</b></p>
+<div class="contact-separe" style="grid-template-columns:1fr">
+<div class="contact-card">
+<b>COACH ROSSI - PRINCIPAL</b><br>+225 05 00 06 57 17<br><a class="btn btn-whatsapp" href="https://wa.me/2250500065717" style="margin-top:8px;padding:10px 16px;font-size:12px">WHATSAPP ROSSI 💬</a>
+</div>
+<div class="contact-card mael">
+<b>COACH MAËL - SECOND</b><br>+225 07 01 36 11 70<br><a class="btn btn-bleu" href="https://wa.me/2250701361170" style="margin-top:8px;padding:10px 16px;font-size:12px">WHATSAPP MAËL 💬</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="inscription" style="background:white;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.06);margin-bottom:30px">
+<h2>S'INSCRIRE <i>MAINTENANT</i></h2>
+<p class="sous">Parents, n'attendez pas. Garçon ou fille, le talent de votre enfant ne doit pas attendre. Pour les tarifs et les différentes formules, rendez-vous directement au siège du club.</p>
+<div class="form-box">
+<input placeholder="Nom complet du joueur / de la joueuse">
+<input placeholder="Âge (6 à 20 ans)">
+<select><option>Garçon ou Fille ?</option><option>Garçon 👦</option><option>Fille 👧</option></select>
+<select><option>Choisis ta catégorie</option><option>U6 - U10</option><option>U11 - U15</option><option>U16 - U20</option></select>
+<input placeholder="Poste : Attaquant / Milieu / Défenseur / Gardien" class="full">
+<select class="full"><option>Comment tu veux payer ?</option><option>Je passe au siège du club pour les tarifs</option></select>
+</div>
+<h3 style="margin:20px 0 10px;text-align:center">Choisis comment tu veux nous contacter :</h3>
+<div class="contact-separe">
+<div class="contact-card">
+<h3>COACH ROSSI ⭐</h3>
+<p style="font-size:13px;color:#666">COACH PRINCIPAL</p>
+<p style="font-weight:900;font-size:17px;margin:8px 0">+225 05 00 06 57 17</p>
+<a class="btn btn-whatsapp" href="https://wa.me/2250500065717?text=Bonjour%20Coach%20ROSSI%20je%20veux%20m'inscrire%20a%20AFCDE%20Agnibilekrou" style="width:100%;text-align:center">S'INSCRIRE AVEC ROSSI 💬</a>
+</div>
+<div class="contact-card mael">
+<h3>COACH MAËL</h3>
+<p style="font-size:13px;color:#666">SECOND COACH</p>
+<p style="font-weight:900;font-size:17px;margin:8px 0">+225 07 01 36 11 70</p>
+<a class="btn btn-bleu" href="https://wa.me/2250701361170?text=Bonjour%20Coach%20Mael%20je%20veux%20m'inscrire%20a%20AFCDE%20Agnibilekrou" style="width:100%;text-align:center">S'INSCRIRE AVEC MAËL 💬</a>
+</div>
+</div>
+<div style="text-align:center;margin-top:20px;background:#f0f7ff;border-radius:10px;padding:18px">
+<p style="font-size:14px;color:#111;font-weight:700">Tu n'as pas WhatsApp ? Suis-nous et écris-nous sur Facebook :</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px">
+<a class="btn btn-facebook" href="https://www.facebook.com/afcde225" target="_blank">📘 PAGE FACEBOOK</a>
+<a class="btn btn-suivre" href="https://www.facebook.com/afcde225" target="_blank">➕ S'ABONNER</a>
+<a class="btn btn-messenger" href="https://www.facebook.com/afcde225" target="_blank">💬 ENVOYER UN MESSAGE</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="cols">
+<div><h4>A.F.C.D.E</h4><p>Académie Football Club Dieu-Est<br>Agnibilékrou<br>Région de l'Indénié-Djuablin 🇨🇮<br>U6 à U20 - Garçons & Filles<br>Dieu d'abord 🙏</p></div>
+<div><h4>COACH ROSSI - PRINCIPAL</h4><p>+225 05 00 06 57 17</p><h4 style="margin-top:12px">COACH MAËL - SECOND</h4><p>+225 07 01 36 11 70</p></div>
+<div><h4>STADE</h4><p>Stade Abinan Kouakou Pascal<br>À côté du Lycée Moderne<br>d'Agnibilékrou (Grand Terrain)</p></div>
+<div><h4>SUIVEZ-NOUS</h4><p><a href="https://www.facebook.com/afcde225" target="_blank">📘 Page Facebook Officielle →</a><br><a href="https://www.facebook.com/afcde225" target="_blank">➕ S'abonner à la page →</a><br><a href="https://www.facebook.com/afcde225" target="_blank">💬 Envoyer un message →</a><br><br>Photos, vidéos, matchs<br>et annonces du club</p></div>
+<div><h4>TARIFS</h4><p>Pour tous les montants<br>et les différents prix,<br>rendez-vous au siège<br>du club.</p></div>
+</div>
+<br><p>© 2026 A.F.C.D.E - Agnibilékrou - Tous droits réservés. Garçons & Filles.</p>
+</footer>
+
+</body>
+</html>
